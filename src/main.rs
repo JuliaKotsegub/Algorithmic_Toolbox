@@ -1,22 +1,24 @@
 use std::io;
 
+// Сумма двох цифр
 
-// Сумма двох цифр4
+/* 1. let mut buff = String::new();: Створюємо порожній рядок для зберігання введення.
+2. ::std::io::stdin().read_line(&mut buff);: Читаємо рядок зі стандартного вводу і записуємо його у змінну buff.
+3. let mut words = buff.split_whitespace();: Розбиваємо рядок на слова (цифри), використовуючи пробіли як роздільники.
+4. let a: i64 = words.next().unwrap().parse().unwrap();: Зчитуємо перше слово (першу цифру), конвертуємо його у число.
+5. let b: i64 = words.next().unwrap().parse().unwrap();: Аналогічно зчитуємо друге слово (другу цифру) і конвертуємо його у число.
+6. println!("{}", a+b);: Виводимо суму двох чисел.*/
 
 fn main() {
-    let mut a = String::new();
-    let mut b = String::new();
+    let mut buff = String::new();
+    ::std::io::stdin().read_line(&mut buff);
+    let mut words = buff.split_whitespace();
 
-    println!("Введіть цифру #1 ");
-    io::stdin().read_line(&mut a).expect("Не вдалося прочитати рядок");
-    let dijit_1:i32=a.trim().parse().expect("Введено невірне число");
+    let a:i64=words.next().unwrap().parse().unwrap();
+    let b:i64=words.next().unwrap().parse().unwrap();
 
-    println!("Введіть цифру #2 ");
-    io::stdin().read_line(&mut b).expect("Не вдалося прочитати рядок");
-    let dijit_2:i32=b.trim().parse().expect("Введено невірне число");
+    println!("{}", a+b);
 
-
-    let sum = dijit_1 + dijit_2;
-
-    println!("Sum: {}", sum);
 }
+
+
